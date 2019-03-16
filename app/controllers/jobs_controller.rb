@@ -25,18 +25,14 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = Job.new(job_params)
-
-    respond_to do |format|
-      if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render :show, status: :created, location: @job }
-      else
-        format.html { render :new }
-        format.json { render json: @job.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+   @job = Job.new(job_params)
+   @job.user = current_user
+   if @job.save
+     redirect_to @job, notice: 'Job was successfully created.'
+   else
+     render :new
+   end
+ end
 
   # PATCH/PUT /jobs/1
   # PATCH/PUT /jobs/1.json
@@ -61,8 +57,6 @@ class JobsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
     # Use callbacks to share common setup or constraints between actions.
     def set_job
       @job = Job.find(params[:id])
