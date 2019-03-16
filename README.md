@@ -45,3 +45,7 @@ class CreateJobsRecruiters < ActiveRecord::Migration[5.2]
 end
 
 then add the relationships in the models folder
+
+at the end
+$ rails g migration AddUserToProducts user:references
+$ rake db:migrate

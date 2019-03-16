@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
+<%= flash_messages %>
+<h2>job</h2>
 
 <p>
   <strong>Title:</strong>
-  <%= @job.title %>
+  	<%= @job.title %>
 </p>
-
-<p>
-  <strong>Field:</strong>
-  <%= @job.field %>
-</p>
-
 <p>
   <strong>Description:</strong>
-  <%= @job.description %>
+  	<%= @job.description %>
 </p>
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<p>
+  <strong>Field:</strong>
+  	<%= @job.field %>
+</p>
+<%= link_to 'Edit', edit_job_path(@job), class: "btn btn-warning" %>
+<%= link_to "Back", jobs_path, class: "btn btn-default" %>
