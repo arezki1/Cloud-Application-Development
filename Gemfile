@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
-
+#install the gems for scrapping
+gem 'httparty'
+gem 'byebug'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
@@ -14,6 +16,9 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
+
+#adding Nokogiri
+gem 'nokogiri'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

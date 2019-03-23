@@ -6,6 +6,20 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
+    require 'rubygems'
+    require 'nokogiri'
+    require 'open-uri'
+    require 'httparty'
+    require 'openssl'
+
+    page = Nokogiri::HTML(open("https://www.morganmckinley.ie/"))
+    puts page.class   # => Nokogiri::HTML::Document
+    @title=page.css(".blog-title").text
+    @title=page.css('a[href="https://www.morganmckinley.ie/salary-survey"]')[0].text
+    @paragraph=page.css(".article-teaser-text").css('.leading-para')[2].text
+    @href=page.css(".read-more-link")[2]['href']
+
+
   end
 
   # GET /jobs/1
