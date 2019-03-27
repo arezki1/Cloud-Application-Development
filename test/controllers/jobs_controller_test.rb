@@ -20,7 +20,7 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
       post jobs_url, params: { job: { description: @job.description, field: @job.field, title: @job.title } }
     end
 
-    assert_redirected_to job_url(Job.last)
+    assert_redirected_tusero job_url(Job.last)
   end
 
   test "should show job" do
