@@ -17,6 +17,8 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 gem 'rolify'
 
+# search gem
+gem 'simple_form'
 #adding Nokogiri
 gem 'nokogiri'
 # Use Puma as the app server

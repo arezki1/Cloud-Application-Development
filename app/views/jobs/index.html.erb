@@ -1,6 +1,23 @@
 <%= flash_messages %>
 
 <h2>Jobs List</h2>
+
+
+<% if false %>
+here we are showing the search functionality
+<% end %>
+
+       <div class="col-md-4" style="float:right">
+          <h4>Search a Job by keyword </h4>
+           <%= simple_form_for :search, url: :jobs, method: "GET", html: { class: 'form-inline' } do |f| %>
+           <%= f.input :title,input_html: {value: ""} %>
+           <%= f.submit "Search", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+
+
+        <br><br>
+
 <div class="job-block">
   <table class="table table-striped table-bordered table-hover">
     <thead>
@@ -35,12 +52,17 @@
 
 </br></br>
 
-<div>
+<% if false %>
+here we are showing the scrapping result
+<% end %>
 
-   <h3><%= @title %> </h3></br>
-   <p> <%= @paragraph %> </p>
-   <a href="<%= @href %>">Read More here</a>
+</div>
+      <div class="col-md-4">
 
+         <h3><%= @main %> </h3></br>
+         <p > <%= @paragraph %> </p>
+         <a href="<%= @href %>">Read More here</a>
 
+       </div>
 
- </div>
+</div>
