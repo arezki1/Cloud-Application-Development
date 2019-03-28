@@ -20,12 +20,12 @@ class JobsController < ApplicationController
     @href=page.css(".read-more-link")[2]['href']
 
 
-
-
+    /here we are handling the for search functionality/
+  
     @search = params["search"]
     if @search.present?
       @title = @search["title"]
-      @jobs = Job.where(title: @title)
+      @jobs = Job.where("title LIKE ?" , "%#{@title}%")
 
     else
       Job.all
