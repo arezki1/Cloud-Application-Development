@@ -21,7 +21,7 @@ class JobsController < ApplicationController
 
 
     /here we are handling the for search functionality/
-  
+
     @search = params["search"]
     if @search.present?
       @title = @search["title"]
@@ -40,7 +40,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = current_user.jobs.build
   end
 
   # GET /jobs/1/edit
@@ -50,7 +50,7 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-   @job = Job.new(job_params)
+   @job = current_user.jobs.build(job_params)
    @job.user = current_user
    if @job.save
      redirect_to @job, notice: 'Job was successfully created.'

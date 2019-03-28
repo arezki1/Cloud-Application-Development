@@ -1,0 +1,17 @@
+
+
+<h1 style="text-align:center">Hello <%= @user.username %> </h1> <br/>
+<h3 style="text-align:center"> This is your profile page</h3>
+<br/> <br/>
+
+
+<p> <b>Username: <%= @user.username %> </p>
+
+<p> <b>Email: <%= @user.email %> </p>
+
+<h3>Your jobs are</h3>
+<br/>
+
+<% @user_jobs.each do |job| %>
+  <p> <b>Tile: <%= link_to job.title, job_path(job) %></p> <b>
+<% end %>
