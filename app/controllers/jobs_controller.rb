@@ -1,9 +1,13 @@
+
+require 'observer'
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   # GET /jobs
   # GET /jobs.json
+
+  include Observable
   def index
     @jobs = Job.all
     require 'rubygems'
@@ -52,6 +56,7 @@ class JobsController < ApplicationController
   def create
    @job = current_user.jobs.build(job_params)
    @job.user = current_user
+   notify_observers(puts " new job created!!!")
    if @job.save
      redirect_to @job, notice: 'Job was successfully created.'
    else
