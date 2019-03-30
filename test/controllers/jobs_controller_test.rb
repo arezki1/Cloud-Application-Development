@@ -25,7 +25,7 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
 
   test "should show job" do
     get job_url(@job)
-    assert_response :success
+    assert_redirected_to 'users/sign_in/url'
   end
 
   test "should get edit" do

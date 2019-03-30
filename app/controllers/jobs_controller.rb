@@ -56,6 +56,8 @@ class JobsController < ApplicationController
   def create
    @job = current_user.jobs.build(job_params)
    @job.user = current_user
+
+   /user observer here to send job creation information/
    notify_observers(puts " new job created!!!")
    if @job.save
      redirect_to @job, notice: 'Job was successfully created.'

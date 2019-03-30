@@ -7,8 +7,20 @@ gem 'httparty'
 gem 'byebug'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
+
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3', '< 1.4'
+group :development do
+
+  gem 'sqlite3', '~> 1.3', '< 1.4'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+
 # adding Bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 # adding jquery
