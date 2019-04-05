@@ -6,13 +6,14 @@ class DashboardController < ApplicationController
     require 'httparty'
     require 'openssl'
 
-    page = Nokogiri::HTML(open("https://www.jobs.ie/Jobs.aspx?hd_searchbutton=true&Categories=4&Regions=63&Keywords=full+stack+developer+10+years+experince&job-search=true"))
+    page = Nokogiri::HTML(open("https://www.jobs.ie/Jobs.aspx?hd_searchbutton=true&Categories=4&Regions=63&Keywords=software+developer+2+experiennce&job-search=true"))
     puts page.class   # => Nokogiri::HTML::Document
-    table=number=page.css(".job-list")
+    table=number=page.css(".job-list-item")
     job=table.css(".job")
-    @name1=table.css(".company")[1].text
-    @name2=table.css(".company")[2].text
-    @name3=table.css(".company")[3].text
+    puts(job)
+    @name1=table.css(".company")[0].text
+    @name2=table.css(".company")[1].text
+    @name3=table.css(".company")[2].text
     @job0=job.css("h2")[0].text
     @job1=job.css("h2")[1].text
     @job2=job.css("h2")[2].text

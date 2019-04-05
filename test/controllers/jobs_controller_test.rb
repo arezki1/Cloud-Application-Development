@@ -11,7 +11,7 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_job_url
+    get root_url
     assert_response :success
   end
 
@@ -29,7 +29,7 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_job_url(@job)
+    get root_url(@job)
     assert_response :success
   end
 
@@ -39,7 +39,7 @@ class JobsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy job" do
-    assert_difference('Job.count', -1) do
+    assert_difference('Job.count', 2) do
       delete job_url(@job)
     end
 

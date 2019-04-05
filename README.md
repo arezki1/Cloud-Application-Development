@@ -49,3 +49,15 @@ then add the relationships in the models folder
 at the end
 $ rails g migration AddUserToProducts user:references
 $ rake db:migrate
+
+//Push to heroku
+
+cd to Final project
+heroku login
+Git push heroku master
+
+
+def show
+  @user= User.find(params[:id])
+  @user_jobs=@user.jobs
+end
