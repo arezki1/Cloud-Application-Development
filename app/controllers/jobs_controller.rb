@@ -58,7 +58,7 @@ class JobsController < ApplicationController
    @job.user = current_user
 
    /user observer here to send job creation information/
-   notify_observers(puts " new job created!!!")
+   notify_observers(puts current_user.username," Has created a new job!!!")
    if @job.save
      redirect_to @job, notice: 'Job was successfully created.'
    else

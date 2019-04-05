@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :jobs, dependent: :destroy
   #confirmed_at: Time.now
+
 end

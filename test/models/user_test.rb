@@ -5,4 +5,9 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
 
+  test "email validation should trigger" do
+
+    assert_not User.new(username: "username").save
+  end
+
 end
